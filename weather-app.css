@@ -1,0 +1,556 @@
+/* importing Google fonts - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  background: #5f41e4;
+  -webkit-animation: rainbow 15s ease-in-out infinite;
+  -z-animation: rainbow 15s ease-in-out infinite;
+  -o-animation: rainbow 15s ease-in-out infinite;
+  animation: rainbow 15s ease-in-out infinite;
+  background: linear-gradient(90deg, #ff2400, orange, yellow, green, blue, indigo, violet);
+  background-size: 900% 900%;
+}
+
+/* Rainbow gradient background animation **/
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 80%
+  }
+
+  50% {
+    background-position: 100% 20%
+  }
+
+  100% {
+    background-position: 0% 80%
+  }
+}
+
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0% 80%
+  }
+
+  50% {
+    background-position: 100% 20%
+  }
+
+  100% {
+    background-position: 0% 80%
+  }
+}
+
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0% 80%
+  }
+
+  50% {
+    background-position: 100% 20%
+  }
+
+  100% {
+    background-position: 0% 80%
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 80%
+  }
+
+  50% {
+    background-position: 100% 20%
+  }
+
+  100% {
+    background-position: 0% 80%
+  }
+}
+
+/* * * * * * * * * * * * * * * * * */
+/* <div class="container"> */
+.container {
+  background-color: burlywood;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100vh;
+  flex-grow: 1;
+  /* position: relative; */
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* * * * * * * * * * * * * * * * * */
+/* <div class="search-section"> */
+.search-section {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+/* <div class="input-wrapper"> */
+.search-section .input-wrapper {
+  height: 40px;
+  width: 90%;
+  position: relative;
+}
+
+/* <span class="material-symbols-rounded" title="search icon">search</span> */
+.search-section .input-wrapper span {
+  position: absolute;
+  top: 15%;
+  left: 17px;
+  transform: translate(-50%);
+  pointer-events: none;
+  font-size: 2rem;
+}
+
+/* <input type="search" placeholder="enter a city name" class="search-input" title="enter a city name"> */
+.search-section .search-input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  padding: 0 20px 0 50px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #beb0ff;
+  transition: 0.1s ease;
+}
+
+.search-section .search-input:focus {
+  border-color: #5f41e4;
+}
+
+.search-section .search-input::placeholder {
+  text-transform: none;
+}
+
+/* <button class="location-button" title="location search"> */
+.search-section .location-button {
+  display: flex;
+  height: 40px;
+  width: 44px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  color: #5f41e4;
+  background: #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #beb0ff;
+  transition: 0.3s ease;
+}
+
+.search-section .location-button:hover {
+  color: #ccc;
+  background: #5f41e4;
+  border-color: #5f41e4;
+}
+
+/* <span class="material-symbols-rounded">my_location</span> */
+.search-section .location-button span {
+  font-size: 1.8rem;
+}
+
+/* <div class="no-results"> */
+.no-results {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+}
+
+body.show-no-results .no-results {
+  display: flex;
+}
+
+/* <h3 class="title">something went wrong</h3> */
+.no-results .title {
+  margin: 25px 0 15px;
+}
+
+/* <p class="message"> */
+.no-results .message {}
+
+/* <div class="weather-section"> */
+body.show-no-results .weather-section {
+  visibility: hidden;
+}
+
+/* * * * * * * * * * * * * * * * * */
+/* <div class="current-weather"> */
+.weather-section .current-weather {
+  display: flex;
+  border: 1px solid #de0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  align-items: center;
+  /*padding: 20px 0 50px;*/
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+/* <div class="current-weather"> / ... */
+.current-weather i {
+  display: flex;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(150, 150, 150, 1);
+  color: orangered;
+  font-size: 2rem;
+  margin: 3px 0;
+  padding: 5px 5px 2px 5px;
+}
+
+/* <p class="country" data-title="país">...</p> */
+.current-weather .country {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* <p class="state" data-title="estado">...</p> */
+.current-weather .state {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* <p class="city" data-title="cidade">...</p> */
+.current-weather .city {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* <p class="geoposition"> */
+.current-weather .geoposition {
+  display: flex;
+  gap: 10px;
+  font-size: 1.5rem;
+  margin: 5px 0;
+  padding: 0;
+}
+
+/* <span class="bar">::</span> */
+.current-weather .geoposition .bar {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: -2px -5px 0 -5px;
+  padding: 0;
+}
+
+/* <div class="block1"> */
+.current-weather .block1 {
+  display: flex;
+  font-size: 1.15rem;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  /*margin: 10px 0;*/
+}
+
+/* <div class="block2"> */
+.current-weather .block2 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 10px 0;*/
+}
+
+/* <div class="block3"> */
+.current-weather .block3 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block4"> */
+.current-weather .block4 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block5"> */
+.current-weather .block5 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block6"> */
+.current-weather .block6 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block7"> */
+.current-weather .block7 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block8"> */
+.current-weather .block8 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block9"> */
+.current-weather .block9 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <div class="block10"> */
+.current-weather .block10 {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <img src="weather-app-icons/clouds.svg" class="weather-icon" title="9. previsão diária"> */
+.current-weather .weather-icon {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 0.5;
+}
+
+/* <span class="top">ºC</span> */
+/* <span class="top">ºF</span> */
+.current-weather .top {
+  font-size: 1.6rem;
+  margin: 0 0 0 -8px;
+  padding: 0;
+}
+
+/* <span class="bottom-1">%</span> */
+/* <span class="bottom-1">mm</span> */
+/* <span class="bottom-1">mb</span> */
+/* <span class="bottom-1">km/h</span> */
+.current-weather .bottom-1 {
+  font-size: 1.5rem;
+  margin: 5px 0 0 -8px;
+  padding: 0;
+}
+
+/* <span class="bottom-2">km/h</span> */
+/* <span class="bottom-2">am</span> */
+/* <span class="bottom-2">pm</span> */
+.current-weather .bottom-2 {
+  font-size: 1.5rem;
+  margin: 7px 0 0 -8px;
+  padding: 0;
+}
+
+/* <p class="moon-phase" data-title="fase da lua">...</p> */
+.current-weather .moon-phase {
+  font-size: 1.75rem;
+  margin: 3px 0 0 5px;
+  padding: 0;
+}
+
+/* <p class="block10"> / ... */
+.current-weather .tempo {
+  display: block;
+  text-align: center;
+  gap: 10px;
+  font-size: 1.75rem;
+  margin: 0;
+  padding: 0;
+  /*margin: 5px 0;*/
+}
+
+/* <p class="description" data-title="condição do tempo">...</p> */
+.current-weather .description {
+  margin: 3px 0 0 5px;
+  padding: 0;
+}
+
+/* <p class="condition-text" data-title="condição diária do tempo">...</p> */
+.current-weather .condition-text {
+  margin: 3px 0 0 5px;
+  padding: 0;
+}
+
+/* <span class="bar">::</span> */
+.current-weather .bar {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 7px 0 0 0;
+  padding: 0;
+}
+
+/* * * * * * * * * * * * * * * * * */
+/* <div class="hourly-weather"> */
+.hourly-weather {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 0.25rem;
+  border-top: 2px solid #d5ccff;
+}
+
+/* <ul class="weather-list"> */
+.hourly-weather .weather-list {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+  padding-bottom: 10px;
+  /*margin-bottom: -10px;*/
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #9ee transparent;
+}
+
+.hourly-weather:hover .weather-list {
+  scrollbar-color: #fdd transparent;
+}
+
+/* <li class="weather-item"> */
+.hourly-weather .weather-item {
+  border: 1px solid #9ee;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  display: flex;
+  /*gap: 5px;*/
+  align-items: center;
+  flex-direction: column;
+}
+
+/* <p class=""></p> */
+.hourly-weather .weather-item p {
+  width: 96px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* <img src="weather-app-icons/clouds.svg" class="weather-icon"> */
+.hourly-weather .weather-item .weather-icon {
+  width: 28px;
+  aspect-ratio: 1;
+}
+
+/* * * * * * * * * * * * * * * * * */
+/*
+Stack Overflow
+html - How to change the style of the title attribute inside an anchor tag?
+https://stackoverflow.com/questions/2011142/how-to-change-the-style-of-the-title-attribute-inside-an-anchor-tag
+*/
+
+[data-title] {
+  position: relative;
+}
+
+[data-title]:hover::after {
+  opacity: 1;
+  transition: all 0s ease 0s;
+  visibility: visible;
+}
+
+[data-title]::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 1.5rem;
+  left: -10%;
+  padding: 4px 8px;
+  color: rgba(34, 34, 34, 1);
+  background-color: yellowgreen;
+  /*font-family: "Couruer New";*/
+  font-size: 1rem;
+  white-space: nowrap;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 4px #222;
+  -webkit-box-shadow: 0px 0px 4px #222;
+  box-shadow: 0px 0px 4px #222;
+  background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #cccccc));
+  background-image: -webkit-linear-gradient(top, #f8f8f8, #cccccc);
+  background-image: -ms-linear-gradient(top, #f8f8f8, #cccccc);
+  background-image: -o-linear-gradient(top, #f8f8f8, #cccccc);
+  opacity: 0;
+  z-index: 99999;
+  visibility: hidden;
+}
+
+/* * * * * * * * * * * * * * * * * */
+/* responsive media query code for small screen */
+@media (max-width: 624px) {
+  body {
+    padding: 15px;
+  }
+
+  .search-section {
+    padding: 20px;
+  }
+
+  .hourly-weather {
+    padding: 16px 20px;
+  }
+
+  .hourly-weather .weather-list {
+    gap: 2px;
+  }
+}
